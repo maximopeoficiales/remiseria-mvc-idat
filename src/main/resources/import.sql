@@ -1,7 +1,7 @@
 use remiseria;
 
 INSERT INTO roles (id_rol, date_created, date_updated, description) VALUES(1, '2021-10-09 10:00:00', '2021-10-09 10:00:00', 'pasajero');
-INSERT INTO roles (id_rol, date_created, date_updated, description) VALUES(2, '2021-10-09 10:00:00', '2021-10-09 10:00:00', 'empleado');
+--INSERT INTO roles (id_rol, date_created, date_updated, description) VALUES(2, '2021-10-09 10:00:00', '2021-10-09 10:00:00', 'empleado');
 INSERT INTO roles (id_rol, date_created, date_updated, description) VALUES(3, '2021-10-09 10:00:00', '2021-10-09 10:00:00', 'recepcionista');
 INSERT INTO roles (id_rol, date_created, date_updated, description) VALUES(4, '2021-10-09 10:00:00', '2021-10-09 10:00:00', 'admin');
 
