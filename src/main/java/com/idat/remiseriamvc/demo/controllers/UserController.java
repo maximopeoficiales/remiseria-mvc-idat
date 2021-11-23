@@ -54,6 +54,7 @@ public class UserController implements ICrudController<User> {
         }).orElse(null);
 //        findUser.setPassword(user.getDescription());
         findUser.setAddress(user.getAddress());
+        findUser.setActive(user.getActive());
         findUser.setFirstName(user.getFirstName());
         findUser.setLastName(user.getLastName());
         return new ResponseEntity<>(userService.save(findUser), HttpStatus.CREATED);

@@ -34,9 +34,16 @@ public class UserService {
     }
 
     public boolean delete(int idUser) {
-        return this.findById(idUser).map(driver -> {
-            repository.delete(idUser);
+        User findUser = this.findById(idUser).map(driver -> {
+
+            return driver;
+        }).orElse(null);
+
+        if (findUser != null){
+            findUser.setActive(false);
+            repository.save(findUser);
             return true;
-        }).orElse(false);
+        }
+        return false;
     }
 }
