@@ -27,6 +27,23 @@ public class UserController implements ICrudController<User> {
         return new ResponseEntity<>(userService.getAll(), HttpStatus.OK);
     }
 
+    @GetMapping("/allEmployes")
+    @ApiOperation("Get all employes")
+    @ApiResponse(code = 200, message = "OK")
+    public ResponseEntity<List<User>> getAllEmployes() {
+        return new ResponseEntity<>(userService.getEmployesAll(), HttpStatus.OK);
+    }
+
+
+    @GetMapping("/findByRole/{id}")
+    @ApiOperation("Search a user filter id role")
+    @ApiResponses({@ApiResponse(code = 200, message = "OK"), @ApiResponse(code = 404, message = "User not found")})
+    public ResponseEntity<List<User>> getByIdRole(
+            @ApiParam(value = "The id role", required = true, example = "5")
+            @PathVariable("id") int idRole) {
+        return new ResponseEntity<>(userService.findByIdRole(idRole), HttpStatus.OK);
+    }
+
     @GetMapping("/{id}")
     @ApiOperation("Search a user with a ID")
     @ApiResponses({@ApiResponse(code = 200, message = "OK"), @ApiResponse(code = 404, message = "User not found")})

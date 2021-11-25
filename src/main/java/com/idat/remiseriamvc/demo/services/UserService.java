@@ -19,6 +19,14 @@ public class UserService {
         return repository.getAll();
     }
 
+    public List<User> getEmployesAll() {
+        return repository.getEmployesAll();
+    }
+
+    public List<User> findByIdRole(Integer idRole) {
+        return repository.findByIdRole(idRole);
+    }
+
     public Optional<User> findById(int idUser) {
         return repository.findById(idUser);
     }
@@ -39,7 +47,7 @@ public class UserService {
             return driver;
         }).orElse(null);
 
-        if (findUser != null){
+        if (findUser != null) {
             findUser.setActive(false);
             repository.save(findUser);
             return true;

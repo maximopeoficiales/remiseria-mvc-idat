@@ -20,6 +20,16 @@ public class UserRepository implements IUserRepository {
     }
 
     @Override
+    public List<User> getEmployesAll() {
+        return (List<User>) crud.getEmployesAll();
+    }
+
+    @Override
+    public List<User> findByIdRole(Integer idRol) {
+        return (List<User>) crud.findByIdRol(idRol);
+    }
+
+    @Override
     public Optional<User> findById(int idUser) {
         return crud.findById(idUser);
     }
