@@ -43,6 +43,7 @@ public class VehicleController implements ICrudController<Vehicle> {
     @ApiOperation("Save a Vehicle")
     @ApiResponse(code = 201, message = "OK")
     public ResponseEntity<Vehicle> save(@RequestBody Vehicle vehicle) {
+        vehicle.setActive(true);
         return new ResponseEntity<>(vehicleService.save(vehicle), HttpStatus.CREATED);
     }
 
@@ -60,7 +61,7 @@ public class VehicleController implements ICrudController<Vehicle> {
         findVehicle.setModel(vehicle.getModel());
         findVehicle.setPlaque(vehicle.getPlaque());
         findVehicle.setType(vehicle.getType());
-
+        findVehicle.setActive(vehicle.getActive());
         return new ResponseEntity<>(vehicleService.save(findVehicle), HttpStatus.CREATED);
     }
 
