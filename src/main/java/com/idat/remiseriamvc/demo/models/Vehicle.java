@@ -37,7 +37,7 @@ public class Vehicle {
     private String mark;
 
 
-    @JsonIgnore
+    //@JsonIgnore
     @ManyToOne(cascade = {CascadeType.ALL})
     @JoinColumn(name = "id_user", insertable = false, updatable = false)
     private User user;

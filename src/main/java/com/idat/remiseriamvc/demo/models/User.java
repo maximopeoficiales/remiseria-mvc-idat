@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -47,6 +48,7 @@ public class User {
     @Column(name = "id_rol")
     private Integer idRol;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "user", cascade = {CascadeType.ALL})
     private List<Vehicle> vehicles;
 
