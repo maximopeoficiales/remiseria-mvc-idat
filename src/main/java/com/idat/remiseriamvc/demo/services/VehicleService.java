@@ -23,6 +23,7 @@ public class VehicleService {
     }
 
     public Vehicle save(Vehicle vehicle) {
+        vehicle.setActive(true);
         return repository.save(vehicle);
     }
 
