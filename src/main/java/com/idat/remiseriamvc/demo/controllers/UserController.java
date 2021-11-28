@@ -58,6 +58,7 @@ public class UserController implements ICrudController<User> {
     @ApiOperation("Save a User")
     @ApiResponse(code = 201, message = "OK")
     public ResponseEntity<User> save(@RequestBody User user) {
+        user.setActive(true);
         return new ResponseEntity<>(userService.save(user), HttpStatus.CREATED);
     }
 
@@ -74,6 +75,7 @@ public class UserController implements ICrudController<User> {
         findUser.setActive(user.getActive());
         findUser.setFirstName(user.getFirstName());
         findUser.setLastName(user.getLastName());
+        findUser.setActive(user.getActive());
         return new ResponseEntity<>(userService.save(findUser), HttpStatus.CREATED);
     }
 

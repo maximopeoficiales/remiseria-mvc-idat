@@ -36,7 +36,7 @@ public class UserService {
     }
 
     public User save(User user) {
-        user.setActive(true);
+
         user.setPassword(EncryptPassword.encrypt(user.getPassword()));
         return repository.save(user);
     }
