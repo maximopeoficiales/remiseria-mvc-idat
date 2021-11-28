@@ -70,12 +70,9 @@ public class VehicleController implements ICrudController<Vehicle> {
     public ResponseEntity<?> delete(
             @ApiParam(value = "The id of the vehicle", required = true, example = "1")
             @PathVariable("id") int id) {
-        Vehicle findVehicle = vehicleService.findById(id).map(vehicle -> {
-            return vehicle;
-        }).orElse(null);
-        if (findVehicle != null) {
-            findVehicle.setActive(false);
-            return new ResponseEntity<>(vehicleService.save(findVehicle), HttpStatus.CREATED);
+        Boolean validate = vehicleService.delete(id);
+        if (validate) {
+            return new ResponseEntity<>(HttpStatus.OK);
         } else {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }

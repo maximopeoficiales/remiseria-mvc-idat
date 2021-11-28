@@ -29,7 +29,10 @@ public class VehicleService {
 
     public boolean delete(int idVehicle) {
         return this.findById(idVehicle).map(driver -> {
-            repository.delete(idVehicle);
+            // repository.delete(idVehicle);
+            driver.setActive(false);
+            repository.save(driver);
+
             return true;
         }).orElse(false);
     }
