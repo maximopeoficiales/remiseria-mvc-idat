@@ -36,6 +36,7 @@ public class Vehicle {
     @Column(length = 150)
     private String mark;
 
+    private Boolean active;
 
     //@JsonIgnore
     @ManyToOne(cascade = {CascadeType.ALL})

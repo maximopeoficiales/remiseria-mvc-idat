@@ -65,12 +65,21 @@ public class VehicleController implements ICrudController<Vehicle> {
     }
 
     @DeleteMapping("/{id}")
-    @ApiOperation("Delete a Vehicle by ID")
+    @ApiOperation("Desactive Vehicle by ID")
     @ApiResponse(code = 201, message = "OK")
     public ResponseEntity<?> delete(
             @ApiParam(value = "The id of the vehicle", required = true, example = "1")
             @PathVariable("id") int id) {
-        return (vehicleService.delete(id)) ? new ResponseEntity<>(HttpStatus.OK)
-                : new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        Vehicle findVehicle = vehicleService.findById(id).map(vehicle -> {
+            return vehicle;
+        }).orElse(null);
+        if (findVehicle != null) {
+            findVehicle.setActive(false);
+            return new ResponseEntity<>(vehicleService.save(findVehicle), HttpStatus.CREATED);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+
+
     }
 }
