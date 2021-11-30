@@ -7,8 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class RemiseriaProyectApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(RemiseriaProyectApplication.class, args);
-	}
-
+    public static void main(String[] args) {
+        SpringApplication.run(RemiseriaProyectApplication.class, args);
+    }
 }

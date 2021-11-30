@@ -1,4 +1,4 @@
-package com.idat.remiseriamvc.demo.config.security;
+package com.idat.remiseriamvc.demo.security.jwt;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;

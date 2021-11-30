@@ -1,12 +1,12 @@
-package com.idat.remiseriamvc.demo.controllers;
+package com.idat.remiseriamvc.demo.security.controller;
 
 import com.idat.remiseriamvc.demo.services.UserService;
 import com.idat.remiseriamvc.demo.models.dto.CreateUserDto;
 import com.idat.remiseriamvc.demo.models.User;
 import com.idat.remiseriamvc.demo.models.responses.AuthenticationRequest;
 import com.idat.remiseriamvc.demo.models.responses.AuthenticationResponse;
-import com.idat.remiseriamvc.demo.config.security.JWTUtil;
-import com.idat.remiseriamvc.demo.config.security.UserDetailsCustomService;
+import com.idat.remiseriamvc.demo.security.jwt.JWTUtil;
+import com.idat.remiseriamvc.demo.security.jwt.UserDetailsCustomService;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import org.springframework.beans.factory.annotation.Autowired;

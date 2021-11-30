@@ -1,4 +1,4 @@
-package com.idat.remiseriamvc.demo.config.security;
+package com.idat.remiseriamvc.demo.security.jwt;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;

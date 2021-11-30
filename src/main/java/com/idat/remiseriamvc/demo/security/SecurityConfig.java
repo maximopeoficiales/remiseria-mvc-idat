@@ -1,7 +1,7 @@
-package com.idat.remiseriamvc.demo.config.globals;
+package com.idat.remiseriamvc.demo.security;
 
-import com.idat.remiseriamvc.demo.config.security.JWTFilterRequest;
-import com.idat.remiseriamvc.demo.config.security.UserDetailsCustomService;
+import com.idat.remiseriamvc.demo.security.jwt.JWTFilterRequest;
+import com.idat.remiseriamvc.demo.security.jwt.UserDetailsCustomService;
 import com.idat.remiseriamvc.demo.shared.Enviroments;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;

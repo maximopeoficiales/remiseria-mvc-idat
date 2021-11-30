@@ -1,4 +1,4 @@
-package com.idat.remiseriamvc.demo.config.security;
+package com.idat.remiseriamvc.demo.security.jwt;
 
 import com.idat.remiseriamvc.demo.models.User;
 import com.idat.remiseriamvc.demo.repositorys.crud.IUserCR;

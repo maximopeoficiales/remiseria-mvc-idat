@@ -1,4 +1,4 @@
-package com.idat.remiseriamvc.demo.config.globals;
+package com.idat.remiseriamvc.demo.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
