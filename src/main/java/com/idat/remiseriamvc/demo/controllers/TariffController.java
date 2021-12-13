@@ -57,6 +57,7 @@ public class TariffController implements ICrudController<Tariff> {
         findTariff.setAmount(tariff.getAmount());
         findTariff.setDestination(tariff.getDestination());
         findTariff.setOrigin(tariff.getOrigin());
+        findTariff.setActive(tariff.getActive());
 
         return new ResponseEntity<>(tariffService.save(findTariff), HttpStatus.CREATED);
     }

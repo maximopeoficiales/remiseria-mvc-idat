@@ -28,6 +28,8 @@ public class Tariff {
     @Column()
     private Double amount;
 
+    private Boolean active;
+
     @Column(name = "date_created")
     @CreationTimestamp
     private Date dateCreated;

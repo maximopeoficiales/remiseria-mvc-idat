@@ -28,7 +28,8 @@ public class TariffService {
 
     public boolean delete(int idTariff) {
         return this.findById(idTariff).map(driver -> {
-            repository.delete(idTariff);
+            driver.setActive(false);
+            repository.save(driver);
             return true;
         }).orElse(false);
     }
