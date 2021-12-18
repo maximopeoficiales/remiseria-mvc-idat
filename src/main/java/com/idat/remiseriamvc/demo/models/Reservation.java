@@ -17,7 +17,7 @@ public class Reservation {
     private Integer idReservation;
 
 
-    @Temporal(TemporalType.DATE)
+    @Temporal(TemporalType.TIMESTAMP)
     private Date travelDate;
 
 
