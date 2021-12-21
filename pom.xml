@@ -91,6 +91,8 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
+		<!-- convertir object a json string -->
+
 	</dependencies>
 
 	<build>

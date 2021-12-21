@@ -70,4 +70,18 @@ public class User {
     // // antes de guardar se hara esto
     // password = EncriptarPassword.encriptarPassword(password);
     // }
+
+
+    public User(String username, String password, String firstName, String lastName, String address, String phone, String email, Integer idRol) {
+        this.username = username;
+        this.password = password;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.address = address;
+        this.phone = phone;
+        this.email = email;
+        this.idRol = idRol;
+    }
+
+
 }

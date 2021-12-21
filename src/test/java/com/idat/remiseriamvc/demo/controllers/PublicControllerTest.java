@@ -1,7 +1,6 @@
 package com.idat.remiseriamvc.demo.controllers;
 
 import com.idat.remiseriamvc.demo.RemiseriaProyectApplication;
-import com.idat.remiseriamvc.demo.repositorys.UserRepository;
 import org.junit.Before;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
@@ -24,12 +23,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @ContextConfiguration(classes = RemiseriaProyectApplication.class)
 @SpringBootTest
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
-public class UserControllerIntegrationTest {
+public class PublicControllerTest {
 
-
-
-    @Autowired
-    private UserRepository repository;
     private MockMvc mockMvc;
 
     @Autowired
@@ -42,7 +37,7 @@ public class UserControllerIntegrationTest {
     }
 
     @Test
-    public void verifyAllToDoList() throws Exception {
+    public void verifyGetAllUser() throws Exception {
         mockMvc.perform(MockMvcRequestBuilders.get("/public/users/all").accept(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$", hasSize(1))).andDo(print());
     }
