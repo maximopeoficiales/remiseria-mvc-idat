@@ -25,6 +25,13 @@ public class ReservationService {
     public Reservation save(Reservation reservation) {
         return repository.save(reservation);
     }
+    public List<Reservation> findByIdStateReservation(Integer idStateReservation) {
+        return repository.findByIdStateReservation(idStateReservation);
+    }
+
+    public List<Reservation> getReservationsBetweenDate(String dateInit, String dateEnd) {
+        return repository.getReservationsBetweenDate(dateInit, dateEnd);
+    }
 
     public boolean delete(int idReservation) {
         return this.findById(idReservation).map(driver -> {

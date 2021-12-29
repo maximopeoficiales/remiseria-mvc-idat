@@ -1,5 +1,6 @@
 package com.idat.remiseriamvc.demo.controllers;
 
+import com.idat.remiseriamvc.demo.models.dto.FilterReservationDto;
 import com.idat.remiseriamvc.demo.services.ReservationService;
 import com.idat.remiseriamvc.demo.models.Reservation;
 import com.idat.remiseriamvc.demo.controllers.interfaces.ICrudController;
@@ -37,6 +38,24 @@ public class ReservationController implements ICrudController<Reservation> {
             @PathVariable("id") int id) {
         return reservationService.findById(id).map(p -> new ResponseEntity<>(p, HttpStatus.OK))
                 .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
+    }
+
+    // FILTRA LAS RESERVAS POR EL idStateReservation
+    @GetMapping("/findByIdStateReservation/{idStateReservation}")
+    @ApiOperation("Search by idStateReservation")
+    @ApiResponses({@ApiResponse(code = 200, message = "OK"), @ApiResponse(code = 404, message = "Reservations not found")})
+    public ResponseEntity<List<Reservation>> getByIdStateReservation(
+            @ApiParam(value = "The id of state Reservation", required = true, example = "5")
+            @PathVariable("idStateReservation") int id) {
+        return new ResponseEntity<>(reservationService.findByIdStateReservation(id), HttpStatus.OK);
+    }
+    // FILTRA LAS RESERVACIONES POR EL TRAVEL DATE
+    @PostMapping("/filterByTravelDate")
+    @ApiOperation("Filter reservation by dates")
+    @ApiResponses({@ApiResponse(code = 200, message = "OK"),
+    @ApiResponse(code = 404, message = "Reservations not found")})
+    public ResponseEntity<List<Reservation>> filterByTravelDate(@RequestBody FilterReservationDto data) {
+        return new ResponseEntity<>(reservationService.getReservationsBetweenDate(data.getDateInit(),data.getDateEnd()), HttpStatus.OK);
     }
 
     @PostMapping

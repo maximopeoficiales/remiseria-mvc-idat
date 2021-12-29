@@ -8,7 +8,8 @@ import java.util.Optional;
 
 public interface IReservationRepository {
     List<Reservation> getAll();
-
+    List<Reservation> findByIdStateReservation(Integer idStateReservation);
+    List<Reservation> getReservationsBetweenDate(String dateInit, String dateEnd);
     Optional<Reservation> findById(int idReservation);
 
     Reservation save(Reservation reservation);
