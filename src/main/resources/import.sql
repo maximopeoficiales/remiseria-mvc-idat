@@ -19,3 +19,12 @@ INSERT INTO `state_reservations` (`id_state_reservation`, `date_created`, `date_
 INSERT INTO `state_reservations` (`id_state_reservation`, `date_created`, `date_updated`, `description`) VALUES (15, '2021-12-17 00:00:00.000000', '2021-12-17 00:00:00.000000', 'VIAJE REALIZADO');
 INSERT INTO `state_reservations` (`id_state_reservation`, `date_created`, `date_updated`, `description`) VALUES (16, '2021-12-17 00:00:00.000000', '2021-12-17 00:00:00.000000', 'CANCELADO');
 
+INSERT INTO vehicles (id_vehicle, active, date_created, date_updated, description, id_user, mark, model, plaque, `type`) VALUES(1, 1, '2021-10-09 10:00:00', '2021-10-09 10:00:00', 'Auto 0 KM', 5, 'Ford', 'K-M844', 'AEF-383', 'Desconocido');
+INSERT INTO vehicles (id_vehicle, active, date_created, date_updated, description, id_user, mark, model, plaque, `type`) VALUES(2, 1, '2021-10-09 10:00:00', '2021-10-09 10:00:00', 'Auto 0 KM', 5, 'BMW Group', 'K-M845', 'AEF-385', 'Desconocido');
+
+
+INSERT INTO tariffs (id_tariff, active, amount, date_created, date_updated, description, destination, origin) VALUES(1, 1, 70.0, '2021-10-09 10:00:00', '2021-10-09 10:00:00', 'Es un viaje corto', 'Chorrillos', 'Lima');
+INSERT INTO tariffs (id_tariff, active, amount, date_created, date_updated, description, destination, origin) VALUES(2, 1, 60.0, '2021-10-09 10:00:00', '2021-10-09 10:00:00', 'Un viaje entretenido', 'Callao', 'Lima');
+
+INSERT INTO reservations (id_reservation, date_created, date_updated, description, id_driver, id_passenger, id_state_reservation, id_tariff, travel_date) VALUES(1, '2021-12-31 10:00:00', '2021-12-31 10:00:00', 'Puede tocar la puerta de mi casa', 5, 2, 1, 1, '2021-12-31 10:00:00');
+INSERT INTO reservations (id_reservation, date_created, date_updated, description, id_driver, id_passenger, id_state_reservation, id_tariff, travel_date) VALUES(2, '2021-12-31 10:00:00', '2021-12-31 10:00:00', 'Recogeme a una cuadra de la av siempre viva', 5, 2, 1, 2, '2022-01-11 10:00:00');
