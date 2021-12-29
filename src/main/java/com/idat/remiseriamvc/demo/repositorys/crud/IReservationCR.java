@@ -9,7 +9,6 @@ import java.util.List;
 public interface IReservationCR extends CrudRepository<Reservation, Integer> {
     List<Reservation> findByIdStateReservation(Integer idStateReservation);
 
-    @Query(value = "SELECT * FROM `reservations` r WHERE" +
-            " (r.travel_date BETWEEN '?' AND '?')", nativeQuery = true)
+    @Query(value = "SELECT * FROM `reservations` r WHERE (r.travel_date BETWEEN ?1 AND ?2)", nativeQuery = true)
     List<Reservation> getReservationsBetweenDate(String dateInit, String dateEnd);
 }
