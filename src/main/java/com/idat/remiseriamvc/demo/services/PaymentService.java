@@ -26,6 +26,9 @@ public class PaymentService {
         return repository.save(payment);
     }
 
+    public List<Payment> getPaymentBetweenDate(String dateInit, String dateEnd) {
+        return repository.getPaymentBetweenDate(dateInit, dateEnd);
+    }
     public boolean delete(int idPayment) {
         return this.findById(idPayment).map(driver -> {
             repository.delete(idPayment);

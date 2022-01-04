@@ -70,6 +70,38 @@ public class AuthController {
     }
 
 
+    @PostMapping("/authenticatePassengers")
+    public ResponseEntity<AuthenticationResponse> createTokenPassengers(@RequestBody AuthenticationRequest request) {
+        try {
+            // se autentica con spring
+            authenticationManager.authenticate(
+                    new UsernamePasswordAuthenticationToken(request.getUsername(), request.getPassword()));
+            // busco al usuario si esta registrado
+            UserDetails userDetails = userDetailsCustomService.loadUserByUsername(request.getUsername());
+
+            // genero un jwt
+            String jwt = jwtUtil.generaToken(userDetails);
+
+            // getUser for name
+            User userFind = userService.findByUsername(jwtUtil.extractUsername(jwt)).map(Client -> {
+                return Client;
+            }).orElse(null);
+            // si tiene rol 1 significa que es un usuario con rol Pasajero
+            if (userFind.getIdRol().equals(1)) {
+                // retorno el jwt si todo sale correcto
+                return new ResponseEntity<>(new AuthenticationResponse(jwt, userFind), HttpStatus.OK);
+            } else {
+                return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            }
+
+
+        } catch (BadCredentialsException e) {
+            // si ocurre una exception de tipo badcredentials retorna un not found
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+
+
     @PostMapping("/register")
     @ApiOperation("Register User")
     @ApiResponse(code = 200, message = "OK")

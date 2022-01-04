@@ -1,5 +1,6 @@
 package com.idat.remiseriamvc.demo.repositorys;
 
+import com.idat.remiseriamvc.demo.models.Reservation;
 import com.idat.remiseriamvc.demo.services.contracts.IPaymentRepository;
 import com.idat.remiseriamvc.demo.models.Payment;
 import com.idat.remiseriamvc.demo.repositorys.crud.IPaymentCR;
@@ -32,5 +33,10 @@ public class PaymentRepository implements IPaymentRepository {
     @Override
     public void delete(int idPayment) {
         crud.deleteById(idPayment);
+    }
+
+    @Override
+    public List<Payment> getPaymentBetweenDate(String dateInit, String dateEnd) {
+        return crud.getPaymentBetweenDate(dateInit, dateEnd);
     }
 }

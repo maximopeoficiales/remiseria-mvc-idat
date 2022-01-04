@@ -14,4 +14,7 @@ public interface IPaymentRepository {
     Payment save(Payment payment);
 
     void delete(int idPayment);
+
+    List<Payment> getPaymentBetweenDate(String dateInit, String dateEnd);
+
 }

@@ -1,5 +1,7 @@
 package com.idat.remiseriamvc.demo.controllers;
 
+import com.idat.remiseriamvc.demo.models.Reservation;
+import com.idat.remiseriamvc.demo.models.dto.FilterReservationDto;
 import com.idat.remiseriamvc.demo.services.PaymentService;
 import com.idat.remiseriamvc.demo.models.Payment;
 import com.idat.remiseriamvc.demo.controllers.interfaces.ICrudController;
@@ -32,11 +34,8 @@ public class PaymentController implements ICrudController<Payment> {
     @GetMapping("/{id}")
     @ApiOperation("Search a payment with a ID")
     @ApiResponses({@ApiResponse(code = 200, message = "OK"), @ApiResponse(code = 404, message = "Payment not found")})
-    public ResponseEntity<Payment> getById(
-            @ApiParam(value = "The id of the payment", required = true, example = "5")
-            @PathVariable("id") int id) {
-        return paymentService.findById(id).map(p -> new ResponseEntity<>(p, HttpStatus.OK))
-                .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
+    public ResponseEntity<Payment> getById(@ApiParam(value = "The id of the payment", required = true, example = "5") @PathVariable("id") int id) {
+        return paymentService.findById(id).map(p -> new ResponseEntity<>(p, HttpStatus.OK)).orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
     @PostMapping
@@ -67,10 +66,15 @@ public class PaymentController implements ICrudController<Payment> {
     @DeleteMapping("/{id}")
     @ApiOperation("Delete a Payment by ID")
     @ApiResponse(code = 201, message = "OK")
-    public ResponseEntity<?> delete(
-            @ApiParam(value = "The id of the payment", required = true, example = "1")
-            @PathVariable("id") int id) {
-        return (paymentService.delete(id)) ? new ResponseEntity<>(HttpStatus.OK)
-                : new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    public ResponseEntity<?> delete(@ApiParam(value = "The id of the payment", required = true, example = "1") @PathVariable("id") int id) {
+        return (paymentService.delete(id)) ? new ResponseEntity<>(HttpStatus.OK) : new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    }
+
+
+    @PostMapping("/filterByTravelDate")
+    @ApiOperation("Filter payment by dates")
+    @ApiResponses({@ApiResponse(code = 200, message = "OK"), @ApiResponse(code = 404, message = "Payments not found")})
+    public ResponseEntity<List<Payment>> filterByTravelDate(@RequestBody FilterReservationDto data) {
+        return new ResponseEntity<>(paymentService.getPaymentBetweenDate(data.getDateInit(), data.getDateEnd()), HttpStatus.OK);
     }
 }
