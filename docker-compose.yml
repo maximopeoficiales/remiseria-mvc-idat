@@ -1,7 +1,7 @@
 version: "3"
 services:
   web:
-    container_name: remiseria-sudamericana-spring
+    container_name: remiseria-sudamericana-spring_v2
     build: .
     ports:
       - 8080:8080
@@ -10,7 +10,7 @@ services:
     volumes:
       - .:/usr/src/app
   mysql:
-    container_name: remiseria-sudamericana-mysql
+    container_name: remiseria-sudamericana-mysql_v2
     image: mysql:8.0.13
     ports:
       - 3307:3306
@@ -21,7 +21,7 @@ services:
     volumes:
       - ./db:/var/lib/mysql
   phpmyadmin:
-    container_name: phpmyadmin-remiseria
+    container_name: phpmyadmin-remiseria_v2
     image: phpmyadmin/phpmyadmin
     links:
       - mysql:db
