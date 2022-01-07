@@ -28,3 +28,6 @@ INSERT INTO tariffs (id_tariff, active, amount, date_created, date_updated, desc
 
 INSERT INTO reservations (id_reservation, date_created, date_updated, description, id_driver, id_passenger, id_state_reservation, id_tariff, travel_date) VALUES(1, '2021-12-31 10:00:00', '2021-12-31 10:00:00', 'Puede tocar la puerta de mi casa', 5, 2, 1, 1, '2021-12-31 10:00:00');
 INSERT INTO reservations (id_reservation, date_created, date_updated, description, id_driver, id_passenger, id_state_reservation, id_tariff, travel_date) VALUES(2, '2021-12-31 10:00:00', '2021-12-31 10:00:00', 'Recogeme a una cuadra de la av siempre viva', 5, 2, 1, 2, '2022-01-11 10:00:00');
+
+INSERT INTO `payments` (`id_payment`, `amount`, `date_created`, `date_updated`, `id_driver`, `id_employee`, `id_vehicle`, `payment_date`) VALUES (1, 1991, '2022-01-07 05:16:14.730000', '2022-01-07 05:16:14.730000', 5, 1, 2, '2022-01-01');
+INSERT INTO `payments` (`id_payment`, `amount`, `date_created`, `date_updated`, `id_driver`, `id_employee`, `id_vehicle`, `payment_date`) VALUES (2, 11, '2022-01-07 05:16:36.489000', '2022-01-07 05:16:36.489000', 5, 1, 2, '2023-01-02');
