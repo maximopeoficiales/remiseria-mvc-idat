@@ -36,10 +36,13 @@ public class UserService {
     }
 
     public User save(User user) {
-
-        user.setPassword(EncryptPassword.encrypt(user.getPassword()));
+        if (user.getPassword() != null || user.getPassword() != "") {
+            user.setPassword(EncryptPassword.encrypt(user.getPassword()));
+        }
         return repository.save(user);
     }
+
+
 
     public boolean delete(int idUser) {
         User findUser = this.findById(idUser).map(driver -> {

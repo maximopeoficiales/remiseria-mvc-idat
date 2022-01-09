@@ -70,6 +70,23 @@ public class UserController implements ICrudController<User> {
         User findUser = userService.findById(user.getIdUser()).map(user1 -> {
             return user1;
         }).orElse(null);
+     //   findUser.setPassword(user.getPassword());
+        findUser.setAddress(user.getAddress());
+        findUser.setActive(user.getActive());
+        findUser.setFirstName(user.getFirstName());
+        findUser.setLastName(user.getLastName());
+        findUser.setActive(user.getActive());
+        return new ResponseEntity<>(userService.save(findUser), HttpStatus.CREATED);
+    }
+
+    @PutMapping("/updatePassenger")
+    @ApiOperation("Update a User")
+    @ApiResponse(code = 201, message = "OK")
+    public ResponseEntity<User> updatePassenger(@RequestBody User user) {
+
+        User findUser = userService.findById(user.getIdUser()).map(user1 -> {
+            return user1;
+        }).orElse(null);
         findUser.setPassword(user.getPassword());
         findUser.setAddress(user.getAddress());
         findUser.setActive(user.getActive());
