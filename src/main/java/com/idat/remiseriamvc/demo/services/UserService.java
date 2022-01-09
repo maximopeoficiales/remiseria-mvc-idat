@@ -43,7 +43,6 @@ public class UserService {
     }
 
 
-
     public boolean delete(int idUser) {
         User findUser = this.findById(idUser).map(driver -> {
 
