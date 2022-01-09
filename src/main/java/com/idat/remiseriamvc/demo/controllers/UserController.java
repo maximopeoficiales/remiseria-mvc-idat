@@ -70,7 +70,7 @@ public class UserController implements ICrudController<User> {
         User findUser = userService.findById(user.getIdUser()).map(user1 -> {
             return user1;
         }).orElse(null);
-//        findUser.setPassword(user.getDescription());
+        findUser.setPassword(user.getPassword());
         findUser.setAddress(user.getAddress());
         findUser.setActive(user.getActive());
         findUser.setFirstName(user.getFirstName());
