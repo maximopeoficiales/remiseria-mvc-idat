@@ -36,7 +36,7 @@ public class UserService {
     }
 
     public User save(User user) {
-        if (user.getPassword() != null || user.getPassword() != "") {
+        if (user.getPassword() != null || !user.getPassword().equals("")) {
             user.setPassword(EncryptPassword.encrypt(user.getPassword()));
         }
         return repository.save(user);
