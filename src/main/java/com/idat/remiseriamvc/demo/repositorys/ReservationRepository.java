@@ -25,6 +25,11 @@ public class ReservationRepository implements IReservationRepository {
     }
 
     @Override
+    public List<Reservation> findByIdPassenger(Integer idPassenger) {
+        return crud.findByIdPassenger(idPassenger);
+    }
+
+    @Override
     public List<Reservation> getReservationsBetweenDate(String dateInit, String dateEnd) {
         return crud.getReservationsBetweenDate(dateInit, dateEnd);
     }

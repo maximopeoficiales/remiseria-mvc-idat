@@ -25,8 +25,13 @@ public class ReservationService {
     public Reservation save(Reservation reservation) {
         return repository.save(reservation);
     }
+
     public List<Reservation> findByIdStateReservation(Integer idStateReservation) {
         return repository.findByIdStateReservation(idStateReservation);
+    }
+
+    public List<Reservation> findByIdPassenger(Integer idPassenger) {
+        return repository.findByIdPassenger(idPassenger);
     }
 
     public List<Reservation> getReservationsBetweenDate(String dateInit, String dateEnd) {
