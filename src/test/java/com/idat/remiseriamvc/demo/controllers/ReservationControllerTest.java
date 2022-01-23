@@ -76,39 +76,29 @@ public class ReservationControllerTest {
     }
 
 
-
-    /*@Test
-    public void check() throws Exception {
-        Integer idStateReservation = 3;
+    @Test
+    public void checkUpdateReservation() throws Exception {
+        Integer idStateReservation = 12;
         var idReservation = 1;
+        var newDescription = "Alguna descripcion nueva";
         var findReservation = reservationService.findById(idReservation).map(reservation -> {
             return reservation;
         }).orElse(null);
-
         if (findReservation != null) {
             findReservation.setIdStateReservation(idStateReservation);
+            findReservation.setDescription(newDescription);
             var reservationUpdated = reservationService.save(findReservation);
-            if (reservationUpdated != null) {
-                assertEquals(idStateReservation, reservationUpdated.getIdStateReservation());
-            }
+            assertEquals(idStateReservation, reservationUpdated.getIdStateReservation());
+            assertEquals(newDescription, reservationUpdated.getDescription());
+            assertEquals(1, reservationService.findByIdStateReservation(idStateReservation).size());
         }
-    }*/
+    }
 
-   /* @Test
-    public void checkDeleteReservation() throws Exception {
-        var idReservation = 1;
-        var findReservation = reservationService.findById(idReservation).map(reservation -> {
-            return reservation;
-        }).orElse(null);
-
-        if (findReservation != null) {
-            findReservation.set(idStateReservation);
-            var reservationUpdated = reservationService.save(findReservation);
-            if (reservationUpdated != null) {
-                assertEquals(idStateReservation, reservationUpdated.getIdStateReservation());
-            }
-        }
-    }*/
+    @Test
+    public void checkAmountReservationsByIdUser() throws Exception {
+        var idUser = 2;
+        assertEquals(2, reservationService.findByIdPassenger(idUser).size());
+    }
 
 
 }
